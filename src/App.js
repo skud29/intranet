@@ -1,19 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Sidebar, Segment, Menu, Icon, Header } from 'semantic-ui-react'
 import './App.css';
 
 class App extends Component {
+  state = { visible: true }
+
+  toggleVisibility = () => this.setState({ visible: !this.state.visible })
+
+
   render() {
+    const { visible } = this.state
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Sidebar.Pushable as={Segment}>
+          <Sidebar as={Menu} animation='slide along' width='thin' visible={visible} icon='labeled' vertical inverted borderless >
+            <Menu.Item name='home' color="green" >
+              <Icon name='home' /> Home
+              <Menu.Item name='home'>
+                Home 1
+              </Menu.Item>
+              <Menu.Item name='home'>
+                Home 2
+              </Menu.Item>
+            </Menu.Item>
+            <Menu.Item name='gamepad'>
+              <Icon name='gamepad' />
+              Games
+            </Menu.Item>
+            <Menu.Item name='camera'>
+              <Icon name='camera' />
+              Channels
+            </Menu.Item>
+          </Sidebar>
+          <Sidebar.Pusher >
+            <Segment basic>
+              <Header as='h3'>Application Content</Header>
+            </Segment>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
     );
   }
 }
