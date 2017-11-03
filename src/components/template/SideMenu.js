@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import SideNav from '../sidenav/SideNav';
 import Nav, { NavIcon, NavText } from '../sidenav/Nav';
 import ReactIcon from 'react-icons-kit';
+
+import { ic_euro_symbol } from 'react-icons-kit/md/ic_euro_symbol';   
+import { ic_perm_contact_calendar } from 'react-icons-kit/md/ic_perm_contact_calendar';  
+import { ic_insert_drive_file } from 'react-icons-kit/md/ic_insert_drive_file';  
+import { ic_equalizer } from 'react-icons-kit/md/ic_equalizer';   
+
 import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';
 import { ic_business } from 'react-icons-kit/md/ic_business';
 import { ic_business_center } from 'react-icons-kit/md/ic_business_center';
@@ -22,70 +28,70 @@ const SideMenu = () =>
     marginRight="10px"
 >
     <div />
-    <Nav id="dashboard">
-        <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-        <NavText> Dashboard </NavText>
-    </Nav>
-
-    <Nav id="products">
-        <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-        <NavText> Products </NavText>
-    </Nav>
-    <Nav id="orders">
-        <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-        <NavText>
-            {' '}<span style={{ paddingRight: 6 }}>Orders</span>{' '}
-            <span
-                style={{
-                    textAlign: 'center',
-                    lineHeight: '16px',
-                    height: 16,
-                    width: 16,
-                    margin: '0 auto',
-                    borderRadius: '50%',
-                    fontSize: 9,
-                    display: 'inline-block',
-                    color: '#FFF',
-                    background: '#ff5b57'
-                }}
-            >
-      10
-            </span>
-        </NavText>
-    </Nav>
-
-    <Nav id="customers">
-        <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-        <NavText> Customers </NavText>
-        <Nav id="dashboard2">
+    <Nav id="frais">
+        <NavIcon><Icon20 icon={ic_euro_symbol} /></NavIcon>
+        <NavText> Frais </NavText>
+        <Nav id="saisieFrais">
             <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Search </NavText>
+            <NavText> Saisie des frais </NavText>
         </Nav>
         <Nav
-            id="sales2"
+            id="trajets"
             onNavClick={() => {
                 console.log('Promote clicked!', arguments);
             }}
         >
             <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-            <NavText> Promote </NavText>
+            <NavText> Trajets </NavText>
         </Nav>
-        <Nav id="products2">
+        <Nav id="admin">
             <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-            <NavText> Social Media </NavText>
+            <NavText> Administration </NavText>
+        </Nav>
+        <Nav id="suivi">
+            <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
+            <NavText> Suivi des paiements </NavText>
         </Nav>
     </Nav>
-    <Nav
-        id="sales"
-        onNavClick={() => {
-            console.log('Sales clicked!', arguments);
-        }}
-    >
-        <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
+    <Nav id="conges">
+        <NavIcon><Icon20 icon={ic_perm_contact_calendar} /></NavIcon>
+        <NavText> Congés </NavText>
+        <Nav id="saisieConges">
+            <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
+            <NavText> Saisie des congés </NavText>
+        </Nav>
+        <Nav id="admin">
+            <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
+            <NavText> Administration </NavText>
+        </Nav>
     </Nav>
-    <Nav id="deliveries">
-        <NavIcon><Icon20 icon={ic_shopping_cart} /></NavIcon>
-        <NavText> Deliveries </NavText>
+    <Nav id="document">
+        <NavIcon><Icon20 icon={ic_insert_drive_file} /></NavIcon>
+        <NavText> Documents </NavText>
+        <Nav id="fichePaie">
+            <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
+            <NavText> Fiches de paie </NavText>
+        </Nav>
+        <Nav id="depotPaie">
+            <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
+            <NavText> Dépot fiche de paie </NavText>
+        </Nav>
+    </Nav>
+    <Nav id="facturation">
+        <NavIcon><Icon20 icon={ic_equalizer} /></NavIcon>
+        <NavText> Facturation </NavText>
+        <Nav id="suiviFact">
+            <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
+            <NavText> Suivi des factures </NavText>
+        </Nav>
+        <Nav id="tdb">
+            <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
+            <NavText> Tableau de bord </NavText>
+        </Nav>
+        <Nav id="saisieFact">
+            <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
+            <NavText> Saisie des factures </NavText>
+        </Nav>
     </Nav>
 </SideNav>;
 
