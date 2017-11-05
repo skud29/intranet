@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Sidebar, Segment, Menu, Header } from 'semantic-ui-react'
 import SideMenu from './components/template/SideMenu'
+import Avatar from './components/template/Avatar'
 import './App.css';
 
 
@@ -31,28 +32,18 @@ class App extends Component {
             <BaseContainer
                       style={{
                           fontFamily: 'Montserrat',
-                          fontSize: 14,
+                          fontSize: 16,
                           background: '#2d353c',
                           color: '#C1C9D2',
                           paddingTop: 0,
                           textAlign: 'left'
                       }}
                   >
-                <div style={{ display: 'flex', padding: 16, background: '#1a2229' }}>
-                    <div style={{ width: 40, height: 40 }}>
-                        <img
-                            src="https://e27.co/img/profiles/15483/profile_pic.png"
-                            alt="Photo profile"
-                            style={{ borderRadius: '30px', width: 40, height: 40 }}
-                        />
-                    </div>
-                    <div style={{ paddingLeft: 6, paddingTop: 6 }}>
-                        <div style={{ fontSize: 12, color: '#E5E5E5' }}>
-                            {' '}Warren Mira{' '}
-                        </div>
-                        <div style={{ fontSize: 11 }}> Ninja Developer </div>
-                    </div>
-                </div>
+                <Avatar 
+                    user='skuranda' 
+                    iconSize='100px'
+                    name='Serge Kuranda'
+                />
                 <SideMenu />
             </BaseContainer>
           </Sidebar>

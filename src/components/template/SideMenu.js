@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SideNav from '../sidenav/SideNav';
 import Nav, { NavIcon, NavText } from '../sidenav/Nav';
 import ReactIcon from 'react-icons-kit';
@@ -11,9 +11,6 @@ import { ic_equalizer } from 'react-icons-kit/md/ic_equalizer';
 import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';
 import { ic_business } from 'react-icons-kit/md/ic_business';
 import { ic_business_center } from 'react-icons-kit/md/ic_business_center';
-import { ic_format_list_bulleted } from 'react-icons-kit/md/ic_format_list_bulleted';
-import { ic_people } from 'react-icons-kit/md/ic_people';
-import { ic_shopping_cart } from 'react-icons-kit/md/ic_shopping_cart';
 
 const Icon20 = props => <ReactIcon size={props.size || 20} icon={props.icon} />;
 
