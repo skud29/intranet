@@ -41,7 +41,7 @@ class App extends Component {
                   >
                 <Avatar 
                     user='skuranda' 
-                    iconSize='100px'
+                    iconSize='tiny'
                     name='Serge Kuranda'
                 />
                 <SideMenu />
