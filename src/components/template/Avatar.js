@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {string, oneOf} from 'prop-types';
 import styled from 'styled-components';
 import {Icon, Image} from 'semantic-ui-react'
 import PopupMenu from './PopupMenu'
+import { androidPerson } from 'react-icons-kit/ionicons/androidPerson';     
+import { logOut } from 'react-icons-kit/ionicons/logOut';   
 
 const AvatarStyled = styled.div`
     position: relative;
@@ -11,7 +13,9 @@ const AvatarStyled = styled.div`
     margin-bottom: 20px;
 `;
 
-const AvatarLink = styled.a`
+const AvatarLink = (props) => <a onclick={this.props.onClick}>{this.props.children}</a>
+
+const AvatarLinkStyled = styled('AvatarLink')`
     display: block;
     float: center;
     text-align:center; 
@@ -23,19 +27,50 @@ const AvatarLink = styled.a`
     }
 `;
 
-const Avatar = ({user, name, iconSize}) => {
-    return (
-        <AvatarStyled>
-            <Image shape='circular' size={iconSize} centered src={require('../../assets/img/' + user + '.jpg')} alt={user} />
-            <AvatarLink>
-                <h4>
-                    {name}
-                    <Icon name='dropdown' />
-                </h4>
-            </AvatarLink>
-            <PopupMenu />
-        </AvatarStyled>
-    )
+const MenuItems = [
+    {
+        divider: false,
+        label: 'Mon profil',
+        icon : androidPerson
+    },
+    {
+        divider: true
+    },
+    {
+        divider: false,
+        label: 'Déconnexion',
+        icon : logOut
+    }
+];
+
+class Avatar extends Component {
+    constructor() {
+        super();
+        this.state = {
+            showMenu: false
+        };
+    }
+
+    toggleMenu() {
+        this.setState({
+            showMenu:!this.state.showMenu
+        });
+    }
+
+    render() {
+        return (
+            <AvatarStyled>
+                <Image shape='circular' size={this.props.iconSize} centered src={require('../../assets/img/' + this.props.user + '.jpg')} alt={this.props.user} />
+                <AvatarLinkStyled onClick={this.toggleMenu.bind(this)}>
+                    <h4>
+                        {this.props.name}
+                        <Icon name='dropdown' />
+                    </h4>
+                </AvatarLinkStyled>
+                {this.state.showMenu ? <PopupMenu items={MenuItems}/> : ''}
+            </AvatarStyled>
+        )
+    }
 }
 
 Avatar.propTypes = {
