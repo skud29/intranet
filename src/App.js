@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Sidebar, Segment, Menu, Header } from 'semantic-ui-react'
+import { Sidebar, Segment, Menu, Header, Container } from 'semantic-ui-react'
 import styled from 'styled-components';
 import SideMenu from './components/template/SideMenu'
 import Avatar from './components/template/Avatar'
@@ -41,8 +41,8 @@ class App extends Component {
     const { visible } = this.state;
     return (
         <TemplateContainer>
-            <Sidebar.Pushable as={Segment} >
-                <Sidebar as={Menu} animation='slide along'visible={visible} icon='labeled' vertical borderless style={{background: '#2d353c'}}>
+            <Sidebar.Pushable>
+                <Sidebar animation='slide along'visible={visible} icon='labeled' vertical borderless style={{background: '#2d353c'}}>
                     <BaseContainer
                             style={{
                                 fontFamily: 'Montserrat',
@@ -53,7 +53,7 @@ class App extends Component {
                                 textAlign: 'left'
                             }}
                         >
-                        <Logo width='240' src='ods.jpg' />
+                        <Logo size='40' imageName='ods.jpg' societyName='Intranet O.D.S.' />
                         <Avatar 
                             user='skuranda' 
                             iconSize='tiny'
@@ -63,10 +63,9 @@ class App extends Component {
                     </BaseContainer>
                 </Sidebar>
                 <Sidebar.Pusher style={{ height: 600 }}>
-                    <Segment basic>
-                    <Header as='h3'>Application Content</Header>
-                    
-                    </Segment>
+                    <Container>
+                        <Header as='h3'>Application Content</Header>                
+                    </Container>
                 </Sidebar.Pusher>
             </Sidebar.Pushable>
         </TemplateContainer>    
