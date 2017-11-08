@@ -1,5 +1,5 @@
-import React from 'react';
-import {string} from 'prop-types';
+import React, { Component } from 'react';
+import {string, func} from 'prop-types';
 import styled from 'styled-components';
 import Icon from 'react-icons-kit';
 import { horizontalCenter } from 'react-icons-kit';
@@ -44,7 +44,9 @@ const ItemMenuStyled = styled.li`
     }
 `;
 
-const LinkMenuStyled = styled.a`
+const LinkMenu = (props) => <a onclick={this.props.onClick}>{this.props.children}</a>
+
+const LinkMenuStyled = styled('LinkMenu')`
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -66,33 +68,43 @@ const SpanMenuCentered = horizontalCenter(
     props => <span>{props.children}</span>
 );
 
-const PopupMenu = ({items, marginTop, left}) => {
-    let menuList = items.map(item => {
-                    if (item.divider) {
-                        return <Divider />
-                    }
-                    else {
-                        return (
-                            <ItemMenuStyled>
-                                <LinkMenuStyled href="javascript:void(0);">
-                                    <SpanMenuCentered>
-                                        {item.icon ? <Icon icon={item.icon} /> :''}
-                                        {item.label}
-                                    </SpanMenuCentered>
-                                </LinkMenuStyled>
-                            </ItemMenuStyled>
-                        )    
-                    }
-                });
-                
-    return (
-        <MenuStyled marginTop={marginTop} left={left}>{menuList}</MenuStyled>
-    )
+class PopupMenu extends Component {
+               
+    componentDidMount(){
+        this.refs.menu.focus();
+    }
+
+    render() {            
+        let menuList = this.props.items.map(item => {
+            if (item.divider) {
+                return <Divider />
+            }
+            else {
+                return (
+                    <ItemMenuStyled>
+                        <LinkMenuStyled onClick={item.callback}>
+                            <SpanMenuCentered>
+                                {item.icon ? <Icon icon={item.icon} /> :''}
+                                {item.label}
+                            </SpanMenuCentered>
+                        </LinkMenuStyled>
+                    </ItemMenuStyled>
+                )    
+            }
+        });
+
+        return (
+            <div ref="menu" tabindex="0" onBlur={this.props.onBlur}>
+                <MenuStyled marginTop={this.props.marginTop} left={this.props.left}>{menuList}</MenuStyled>
+            </div>
+        )
+    }
 }
 
 PopupMenu.propTypes = {
     marginTop: string,
-    left: string
+    left: string,
+    onBlur: func
 }
 
 PopupMenu.defaultProps = {

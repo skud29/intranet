@@ -23,7 +23,7 @@ const AvatarLinkStyled = styled('AvatarLink')`
     margin-top: 10px;
     cursor: pointer;
     &:hover {
-        color: gold;
+        color: #cfcfcf;
     }
 `;
 
@@ -31,7 +31,8 @@ const MenuItems = [
     {
         divider: false,
         label: 'Mon profil',
-        icon : androidPerson
+        icon: androidPerson,
+        callback: function (e) {alert("Mon Profil")}
     },
     {
         divider: true
@@ -39,7 +40,8 @@ const MenuItems = [
     {
         divider: false,
         label: 'Déconnexion',
-        icon : logOut
+        icon : logOut,
+        callback: function (e) {alert("Déconnexion")}
     }
 ];
 
@@ -53,7 +55,13 @@ class Avatar extends Component {
 
     toggleMenu() {
         this.setState({
-            showMenu:!this.state.showMenu
+            showMenu: !this.state.showMenu
+        });
+    }
+
+    closeMenu() {
+        this.setState({
+            showMenu: false
         });
     }
 
@@ -67,7 +75,7 @@ class Avatar extends Component {
                         <Icon name='dropdown' />
                     </h4>
                 </AvatarLinkStyled>
-                {this.state.showMenu ? <PopupMenu items={MenuItems}/> : ''}
+                {this.state.showMenu && <PopupMenu items={MenuItems} onBlur={this.closeMenu.bind(this)} />}
             </AvatarStyled>
         )
     }
