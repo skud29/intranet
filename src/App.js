@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Sidebar, Segment, Menu, Header, Container } from 'semantic-ui-react'
 import styled from 'styled-components';
+import Icon from 'react-icons-kit';
+import { indentDecrease } from 'react-icons-kit/icomoon/indentDecrease';  
+import { indentIncrease } from 'react-icons-kit/icomoon/indentIncrease';           
 import SideMenu from './components/template/SideMenu'
 import Avatar from './components/template/Avatar'
 import Logo from './components/template/Logo'
@@ -63,9 +66,11 @@ class App extends Component {
                     </BaseContainer>
                 </Sidebar>
                 <Sidebar.Pusher style={{ height: 600 }}>
-                    <Container>
-                        <Header as='h3'>Application Content</Header>                
-                    </Container>
+                     <Header as='h2' style={{padding:18, color: '#2d353c', boxShadow: '0 2px 2px rgba(0,0,0,0.05), 0 1px 0 rgba(0,0,0,0.05)'}}>
+                        <Icon size='20' icon={indentDecrease} />
+                        <Header.Content>
+                        </Header.Content>                
+                    </Header>
                 </Sidebar.Pusher>
             </Sidebar.Pushable>
         </TemplateContainer>    
