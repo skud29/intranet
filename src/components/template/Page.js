@@ -7,6 +7,7 @@ import {indentIncrease} from 'react-icons-kit/icomoon/indentIncrease';
 import SideMenu from './SideMenu'
 import Avatar from './Avatar'
 import Logo from './Logo'
+import PageHeader from './PageHeader'
 
 const TemplateContainer = styled.div `
     padding-top: 0;
@@ -66,13 +67,16 @@ class Page extends Component {
                         <Header
                             as='h2'
                             style={{
-                            padding: 18,
+                            padding: 11,
                             color: '#2d353c',
-                            boxShadow: '0 2px 2px rgba(0,0,0,0.05), 0 1px 0 rgba(0,0,0,0.05)'
+                            margin: 0
                         }}>
                             <Icon size='20' icon={visibilityIcon} onClick={this.toggleVisibility}/>
                             <Header.Content></Header.Content>
                         </Header>
+                        <PageHeader 
+                            title={this.props.title || 'Saisie des frais'} 
+                            description={this.props.description || 'Saisie des frais du mois uniquement'} />
                         {this.props.children}
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>

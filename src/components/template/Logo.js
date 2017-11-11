@@ -6,11 +6,13 @@ import { horizontalCenter } from 'react-icons-kit';
 const SpanLogoStyled = styled.span`
     position: relative;
     display: block;
-    padding-top: 10px;
+    padding-top: 6px;
     margin:auto;
-    font-family: 'Arial';
-    font-size: 20px;
+    font-family: 'Montserrat';
+    font-size: 18px;
     text-align:center; 
+    background: #ffffff;
+    color: #2d353c;
 `;
 
 const SpanLogoCentered = horizontalCenter(
@@ -20,7 +22,7 @@ const SpanLogoCentered = horizontalCenter(
 const Logo = ({size, imageName, societyName}) =>
     <SpanLogoCentered>
         <Image shape='circular' width={size} src={require('../../assets/img/'+imageName)} alt="logo" />
-        &nbsp;{societyName}
+        {societyName}
     </SpanLogoCentered>
 
 export default Logo;
