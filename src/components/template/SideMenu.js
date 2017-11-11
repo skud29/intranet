@@ -24,7 +24,6 @@ const SideMenu = () =>
     marginLeft="10px"
     marginRight="10px"
 >
-    <div />
     <Nav id="frais">
         <NavIcon><Icon20 icon={ic_euro_symbol} /></NavIcon>
         <NavText> Frais </NavText>
