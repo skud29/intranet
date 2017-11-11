@@ -22,7 +22,7 @@ const BaseContainer = styled.div `
     background: #2d353c;
     color: #c1c9d2;
     text-align: left;
-    width: ${props => props.width || 220};
+    width: ${props => props.width || 240};
 `;
 
 class Page extends Component {

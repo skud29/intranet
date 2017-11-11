@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Page from './components/template/Page'
 
 

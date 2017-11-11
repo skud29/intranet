@@ -46,8 +46,9 @@ const NavItemStyled = styled.div`
 const NavIconCont = styled.div`
     vertical-align: middle;
     display: inline-flex;
-    width: 42px;
+    width: ${props => props.width};
 `;
+
 const NavTextCont = styled.div`
     vertical-align: middle;
     display: inline-flex;
@@ -196,7 +197,7 @@ export class Nav extends Component {
         return (
             <div>
                 <NavItemStyled className="__rsnav___item" {...itemProps}>
-                    <NavIconCont {...collectStyleAndClsName(icon)}>
+                    <NavIconCont width='32px' {...collectStyleAndClsName(icon)}>
                         {icon && icon.props ? icon.props.children : null}
                     </NavIconCont>
                     <NavTextCont {...collectStyleAndClsName(text)}>
@@ -218,7 +219,9 @@ export class Nav extends Component {
                     ref={this.setSubNavRef}
                     style={{
                         maxHeight: this.state.collapsed ? 0 : null,
-                        transition: 'all 0.2s ease-in-out'
+                        transition: 'all 0.2s ease-in-out',
+                        marginLeft: '20px',
+                        padding: 2
                     }}
                 >
                     {Children.toArray(children)
@@ -239,8 +242,8 @@ export class Nav extends Component {
                                     }}
                                     isHighlighted={isItemHighlighted}
                                 >
-                                    <NavIconCont {...collectStyleAndClsName(sicon)}>
-                                        {null}
+                                    <NavIconCont width='26px' {...collectStyleAndClsName(sicon)}>
+                                        {sicon && sicon.props ? sicon.props.children : null}
                                     </NavIconCont>
                                     <NavTextCont {...collectStyleAndClsName(stext)}>
                                         {stext ? stext.props.children : null}
