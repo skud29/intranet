@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {
   Button,
   Form,
@@ -11,7 +11,7 @@ import {
 import {connect} from 'react-redux';
 import {userActions} from '../_actions';
 
-class LoginForm extends React.Component {
+class LoginPage extends Component {
   constructor(props) {
     super(props);
 
@@ -67,7 +67,7 @@ class LoginForm extends React.Component {
             body > div > div > div.login-form {
               height: 100%;
             }
-             `;
+             `
           }</style>
         <Grid
           textAlign='center'
@@ -79,7 +79,7 @@ class LoginForm extends React.Component {
             maxWidth: 450
           }}>
             <Header as='h2' color='teal' textAlign='center'>
-              <Image src='../assets/img/ods.jpp'/> {' '}Connexion Intranet
+              <Image src='../assets/img/ods.jpg'/> {' '}Connexion Intranet
             </Header>
             <Form size='large' onSubmit={this.handleSubmit}>
               <Segment stacked>
@@ -118,5 +118,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedLoginPage = connect(mapStateToProps)(LoginForm);
-export { connectedLoginPage as LoginForm }; 
+const connectedLoginPage = connect(mapStateToProps)(LoginPage);
+export { connectedLoginPage as LoginPage }; 
